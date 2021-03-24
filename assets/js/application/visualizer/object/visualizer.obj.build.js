@@ -16,7 +16,8 @@ VISUALIZER.object.build = class{
     }
     #initGroup(){
         this.group = {
-            line: new THREE.Group()
+            line: new THREE.Group(),
+            particle: new THREE.Group()
         }
 
         this.build = new THREE.Group
@@ -68,9 +69,13 @@ VISUALIZER.object.build = class{
     // create
     #create(){
         this.#createLine()
+        this.#createParticle()
     }
     #createLine(){
         this.line = new VISUALIZER.object.line.build(this.group.line)
+    }
+    #createParticle(){
+        this.particle = new VISUALIZER.object.particle.build(this.group.particle)
     }
 
 
@@ -106,6 +111,8 @@ VISUALIZER.object.build = class{
     }
     #animateObject(aud){
         const {buf, min, max, audio, start} = aud
+
+        this.particle.animate()
 
         if(start) return
 
