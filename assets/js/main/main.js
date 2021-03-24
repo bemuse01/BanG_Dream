@@ -3,7 +3,7 @@ new Vue({
     data(){
         return{
             element: {
-                // visualizer: new VISUALIZER.element.build()
+                logo: new LOGO.element.build()
             }
         }
     },

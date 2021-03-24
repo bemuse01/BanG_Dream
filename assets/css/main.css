@@ -32,3 +32,25 @@ div.visualizer-object{
     width: 100%;
     height: 100%;
 }
+
+
+/* logo */
+div.logo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75vmin;
+    height: 32.5vmin;
+    /* background: url('../src/logo.png') no-repeat center center / cover; */
+}
+div.logo-piece-wrap{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+div.logo-piece-wrap img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}

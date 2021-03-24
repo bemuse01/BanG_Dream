@@ -19,16 +19,23 @@
         <script src="assets/js/postprocess/EffectComposer.js"></script>
         <script src="assets/js/postprocess/RenderPass.js"></script>
         <script src="assets/js/postprocess/ShaderPass.js"></script>
+        <script src="assets/js/postprocess/MaskPass.js"></script>
         <script src="assets/js/postprocess/BloomPass.js"></script>
         <script src="assets/js/postprocess/FilmPass.js"></script>
         <script src="assets/js/postprocess/FilmShader.js"></script>
         <script src="assets/js/postprocess/ConvolutionShader.js"></script>
         <script src="assets/js/postprocess/CopyShader.js"></script>
         <script src="assets/js/postprocess/FXAAShader.js"></script>
+        <script src="assets/js/postprocess/DigitalGlitch.js"></script>
+        <script src="assets/js/postprocess/GlitchPass.js"></script>
 
 
         <!-- const -->
         <script src="assets/js/const/const.js"></script>
+
+
+        <!-- method -->
+        <script src="assets/js/method/method.js"></script>
 
 
         <!-- component -->
@@ -53,13 +60,17 @@
         <script src="assets/js/application/visualizer/object/line/visualizer.obj.line.param.js"></script>
         <script src="assets/js/application/visualizer/object/line/visualizer.obj.line.method.js"></script>
         <script src="assets/js/application/visualizer/object/line/visualizer.obj.line.build.js"></script>
-        <!-- visualizer object logo -->
-        <script src="assets/js/application/visualizer/object/logo/visualizer.obj.logo.param.js"></script>
-        <script src="assets/js/application/visualizer/object/logo/visualizer.obj.logo.build.js"></script>
         <!-- visualizer object build -->
         <script src="assets/js/application/visualizer/object/visualizer.obj.param.js"></script>
         <script src="assets/js/application/visualizer/object/visualizer.obj.build.js"></script>
 
+        <!-- logo -->
+        <script src="assets/js/application/logo/logo.js"></script>
+        <!-- logo element piece -->
+        <script src="assets/js/application/logo/element/piece/logo.el.piece.param.js"></script>
+        <script src="assets/js/application/logo/element/piece/logo.el.piece.build.js"></script>
+        <!-- logo element build -->
+        <script src="assets/js/application/logo/element/logo.el.build.js"></script>
 
         <!-- style -->
         <link href="assets/css/main.css" rel="stylesheet" type="text/css">
@@ -71,9 +82,18 @@
             </div>
             <div id="element">
                 <div class="app visualizer">
-                    <div class="visualizer-object-wrap">
+                    <div class="object-wrap visualizer-object-wrap">
                         <div class="visualizer-object"></div>
                     </div>
+                </div>
+                <div class="app logo">
+                    <!-- <div class="logo-piece-wrap">
+                        <img src="assets/src/logo.png"
+                            v-for="i in element.logo.piece.get()"
+                            :key="i.key"
+                            :style="i.style"
+                        >
+                    </div> -->
                 </div>
             </div>
         </div>

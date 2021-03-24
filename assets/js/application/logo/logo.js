@@ -1,0 +1,5 @@
+const LOGO = {
+    element: {
+        piece: {}
+    }
+}
