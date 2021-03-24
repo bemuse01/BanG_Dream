@@ -7,9 +7,13 @@ LOGO.element.build = class{
     // create
     #create(){
         this.#createPiece()
+        this.#createPart()
     }
     #createPiece(){
         this.piece = new LOGO.element.piece.build()
+    }
+    #createPart(){
+        this.part = new LOGO.element.part.build()
     }
 
 
@@ -21,5 +25,6 @@ LOGO.element.build = class{
         if(start) return
 
         this.piece.animate(min)
+        this.part.animate(min)
     }
 }

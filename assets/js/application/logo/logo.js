@@ -1,5 +1,6 @@
 const LOGO = {
     element: {
-        piece: {}
+        piece: {},
+        part: {}
     }
 }

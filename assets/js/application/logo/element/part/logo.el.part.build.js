@@ -1,4 +1,4 @@
-LOGO.element.piece.build = class{
+LOGO.element.part.build = class{
     constructor(){
         this.#init()
         this.#create()
@@ -7,7 +7,7 @@ LOGO.element.piece.build = class{
 
     // init
     #init(){
-        this.param = new LOGO.element.piece.param()
+        this.param = new LOGO.element.part.param()
         this.fre = []
         this.index = 0
 
@@ -20,17 +20,11 @@ LOGO.element.piece.build = class{
     #create(){
         this.el = []
 
-        const height = 100 / this.param.count
-        const gap = 100 - height
-
         for(let i = 0; i < this.param.count; i++){
-            const top = height * i - 0.25
-            const bottom = gap - height * i
-
             this.el[i] = {
                 key: i,
+                src: i === 0 ? 'assets/src/logo_red.png' : 'assets/src/logo_green.png',
                 style: {
-                    clipPath: `inset(${top}% 0px ${bottom}% 0px)`,
                     transform: 'translate(0, 0)'
                 }
             }
@@ -48,7 +42,7 @@ LOGO.element.piece.build = class{
         this.el.forEach((e, i) => {
             const rd = min * 0.2
             const x = SIMPLEX.noise2D(i, time * 0.01) * rd * fre
-            const y = SIMPLEX.noise2D(i, time * 0.005) * rd * fre * 0.5
+            const y = SIMPLEX.noise2D(i, time * 0.005) * rd * fre
             e.style.transform = `translate(${x}%, ${y}%)`
         })
     }

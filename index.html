@@ -70,6 +70,9 @@
         <!-- logo element piece -->
         <script src="assets/js/application/logo/element/piece/logo.el.piece.param.js"></script>
         <script src="assets/js/application/logo/element/piece/logo.el.piece.build.js"></script>
+        <!-- logo element part -->
+        <script src="assets/js/application/logo/element/part/logo.el.part.param.js"></script>
+        <script src="assets/js/application/logo/element/part/logo.el.part.build.js"></script>
         <!-- logo element build -->
         <script src="assets/js/application/logo/element/logo.el.build.js"></script>
 
@@ -89,6 +92,14 @@
                     </div>
                 </div>
                 <div class="app logo">
+                    <div class="logo-part-wrap">
+                        <img 
+                            v-for="i in element.logo.part.get()"
+                            :key="i.key"
+                            :src="i.src"
+                            :style="i.style"
+                        >
+                    </div>
                     <div class="logo-piece-wrap">
                         <img src="assets/src/logo.png"
                             v-for="i in element.logo.piece.get()"
