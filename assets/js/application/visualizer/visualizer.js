@@ -1,6 +1,7 @@
 const VISUALIZER = {
     element: {},
     object: {
-        line: {}
+        line: {},
+        logo: {}
     }
 }

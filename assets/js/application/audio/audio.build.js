@@ -48,19 +48,23 @@ AUDIO.build = class{
 
         const start = Math.floor(1 / this.param.fps * this.context.sampleRate)
         const sample = [...this.audioData.slice(start)]
-        // const sample = this.audioData.slice(start)
 
         // this.buf = windowing.kaiser(sample, 1.75).slice(0, this.param.display)
         this.buf = windowing.kaiser(sample, 1.6).slice(0, this.param.display)
 
+        // can get median, min, max
         const median = AUDIO.method.median(this.buf)
 
         for(let i = 0; i < this.buf.length; i++){
             this.buf[i] = Math.max(0, this.buf[i] - median)
         }
 
-        this.max = Math.max(...this.buf)
-        this.min = Math.min(...this.buf)
+        const half = this.buf.slice(this.buf.length / 2, this.buf.length)
+
+        this.buf = [...half, ...half]
+
+        // this.max = Math.max(...this.buf)
+        // this.min = Math.min(...this.buf)
     }
 
 

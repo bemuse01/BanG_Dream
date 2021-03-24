@@ -33,34 +33,22 @@ VISUALIZER.object.line.build = class{
     #createGeometry(){
         const geometry = new THREE.LineGeometry()
 
-        this.position = []
-        const degree = 360 / this.param.seg
-
-        for(let i = 0; i < this.param.seg; i++){
-            const deg = degree * i
-            let x = Math.cos(deg * RADIAN) * this.param.radius
-            let y = Math.sin(deg * RADIAN) * this.param.radius
-
-            this.position.push(x, y, 0)
-
-            if(i === this.param.seg - 1){
-                x = Math.cos(0 * RADIAN) * this.param.radius
-                y = Math.sin(0 * RADIAN) * this.param.radius
-
-                this.position.push(x, y, 0)
-            }
-        }
+        this.position = VISUALIZER.object.line.method.createPosition(this.param)
+        const color = VISUALIZER.object.line.method.createColor(this.param)
 
         geometry.setPositions(this.position)
+        geometry.setColors(color)
 
         return geometry
     }
     #createMaterial(){
         return new THREE.LineMaterial({
             color: 0xffffff,
-            vertexColors: false,
-            linewidth: 0.005,
-            dashed: false
+            vertexColors: true,
+            linewidth: this.param.linewidth,
+            dashed: false,
+            transparent: true,
+            opacity: this.param.opacity
         })
     }
 
@@ -72,7 +60,7 @@ VISUALIZER.object.line.build = class{
 
         for(let i = 0; i < this.position.length / 3; i++){
             if(i === this.position.length / 3 - 1){
-                let radius = this.param.radius + buf[0] * 30
+                let radius = this.param.radius + buf[0] * this.param.rd
                 let x = Math.cos(0 * RADIAN) * radius
                 let y = Math.sin(0 * RADIAN) * radius
 
@@ -81,7 +69,7 @@ VISUALIZER.object.line.build = class{
                 this.position[i * 3 + 2] = 0
             }else{
                 const deg = degree * i
-                let radius = this.param.radius + (i % 2 === 0 ? buf[i] * 30 : buf[i] * -30)
+                let radius = this.param.radius + (i % 2 === 0 ? buf[i] * this.param.rd : buf[i] * -this.param.rd)
                 let x = Math.cos(deg * RADIAN) * radius
                 let y = Math.sin(deg * RADIAN) * radius
     
