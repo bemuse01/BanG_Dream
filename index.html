@@ -7,6 +7,7 @@
         <!-- lib -->
         <script src="assets/js/lib/vue.min.js"></script>
         <script src="assets/js/lib/three.min.r126.js"></script>
+        <script src="assets/js/lib/simplex-noise.2.3.0.min.js"></script>
         <script src="assets/js/lib/windowing.js"></script>
         <script src="assets/js/lib/LineSegmentsGeometry.js"></script>
         <script src="assets/js/lib/LineGeometry.js"></script>
@@ -72,6 +73,7 @@
         <!-- logo element build -->
         <script src="assets/js/application/logo/element/logo.el.build.js"></script>
 
+
         <!-- style -->
         <link href="assets/css/main.css" rel="stylesheet" type="text/css">
     </head>
@@ -87,13 +89,13 @@
                     </div>
                 </div>
                 <div class="app logo">
-                    <!-- <div class="logo-piece-wrap">
+                    <div class="logo-piece-wrap">
                         <img src="assets/src/logo.png"
                             v-for="i in element.logo.piece.get()"
                             :key="i.key"
                             :style="i.style"
                         >
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>

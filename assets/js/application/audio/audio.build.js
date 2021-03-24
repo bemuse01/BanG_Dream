@@ -53,15 +53,18 @@ AUDIO.build = class{
         this.buf = windowing.kaiser(sample, 1.6).slice(0, this.param.display)
 
         // can get median, min, max
-        const median = AUDIO.method.median(this.buf)
+        const {median, min, max} = AUDIO.method.median(this.buf)
 
         for(let i = 0; i < this.buf.length; i++){
             this.buf[i] = Math.max(0, this.buf[i] - median)
         }
 
-        const half = this.buf.slice(this.buf.length / 2, this.buf.length)
+        // const half = this.buf.slice(this.buf.length / 2, this.buf.length)
 
-        this.buf = [...half, ...half]
+        // this.buf = [...half, ...half]
+
+        this.min = min
+        this.max = max
 
         // this.max = Math.max(...this.buf)
         // this.min = Math.min(...this.buf)

@@ -11,4 +11,15 @@ LOGO.element.build = class{
     #createPiece(){
         this.piece = new LOGO.element.piece.build()
     }
+
+
+    // animate
+    animate(param){
+        const {audio} = param
+        const {buf, max, min, start} = audio
+
+        if(start) return
+
+        this.piece.animate(min)
+    }
 }

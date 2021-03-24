@@ -65,7 +65,7 @@ new Vue({
         animateElement(){
             const {audio} = COMP
 
-            this.element.visualizer.animate({audio})
+            this.element.logo.animate({audio})
         },
 
 
@@ -78,7 +78,7 @@ new Vue({
         // render
         render(){
             this.renderThree()
-            // this.animateElement()
+            this.animateElement()
         },
         animate(){
             this.render()
