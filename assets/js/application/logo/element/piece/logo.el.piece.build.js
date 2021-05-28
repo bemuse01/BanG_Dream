@@ -1,12 +1,12 @@
 LOGO.element.piece.build = class{
     constructor(){
-        this.#init()
-        this.#create()
+        this.init()
+        this.create()
     }
 
 
     // init
-    #init(){
+    init(){
         this.param = new LOGO.element.piece.param()
         this.fre = []
         this.index = 0
@@ -17,7 +17,7 @@ LOGO.element.piece.build = class{
 
 
     // create
-    #create(){
+    create(){
         this.el = []
 
         const height = 100 / this.param.count

@@ -1,36 +1,36 @@
 VISUALIZER.object.line.build = class{
     constructor(group){
-        this.#init()
-        this.#create()
-        this.#add(group)
+        this.init()
+        this.create()
+        this.add(group)
     }
 
 
     // init
-    #init(){
+    init(){
         this.param = new VISUALIZER.object.line.param()
     }
 
 
     // add
-    #add(group){
+    add(group){
         group.add(this.mesh)
     }
 
 
     // create
-    #create(){
-        this.#createMesh()
+    create(){
+        this.createMesh()
     }
-    #createMesh(){
-        const geometry = this.#createGeometry()
-        const material = this.#createMaterial()
+    createMesh(){
+        const geometry = this.createGeometry()
+        const material = this.createMaterial()
         this.mesh = new THREE.Line2(geometry, material)
         // this.mesh.computeLineDistances()
         this.mesh.rotation.z = 90 * RADIAN
         this.mesh.layers.set(this.param.layers)
     }
-    #createGeometry(){
+    createGeometry(){
         const geometry = new THREE.LineGeometry()
 
         this.position = VISUALIZER.object.line.method.createPosition(this.param)
@@ -41,7 +41,7 @@ VISUALIZER.object.line.build = class{
 
         return geometry
     }
-    #createMaterial(){
+    createMaterial(){
         return new THREE.LineMaterial({
             color: 0xffffff,
             vertexColors: true,

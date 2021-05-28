@@ -1,18 +1,18 @@
 LOGO.element.build = class{
     constructor(){
-        this.#create()
+        this.create()
     }
 
 
     // create
-    #create(){
-        this.#createPiece()
-        this.#createPart()
+    create(){
+        this.createPiece()
+        this.createPart()
     }
-    #createPiece(){
+    createPiece(){
         this.piece = new LOGO.element.piece.build()
     }
-    #createPart(){
+    createPart(){
         this.part = new LOGO.element.part.build()
     }
 

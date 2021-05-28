@@ -1,12 +1,12 @@
 LOGO.element.part.build = class{
     constructor(){
-        this.#init()
-        this.#create()
+        this.init()
+        this.create()
     }
 
 
     // init
-    #init(){
+    init(){
         this.param = new LOGO.element.part.param()
         this.fre = []
         this.index = 0
@@ -17,7 +17,7 @@ LOGO.element.part.build = class{
 
 
     // create
-    #create(){
+    create(){
         this.el = []
 
         for(let i = 0; i < this.param.count; i++){
