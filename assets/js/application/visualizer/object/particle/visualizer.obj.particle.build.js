@@ -1,30 +1,30 @@
 VISUALIZER.object.particle.build = class{
     constructor(group){
-        this.#init()
-        this.#create()
-        this.#add(group)
-        this.#createTween()
+        this.init()
+        this.create()
+        this.add(group)
+        this.createTween()
     }
 
 
     // init
-    #init(){
+    init(){
         this.param = new VISUALIZER.object.particle.param()
     }
 
 
     // add
-    #add(group){
+    add(group){
         group.add(this.local)
     }
 
 
     // create
-    #create(){
+    create(){
         this.local = new THREE.Group()
 
         for(let i = 0; i < this.param.count; i++){
-            const mesh = this.#createMesh()
+            const mesh = this.createMesh()
 
             const deg = Math.random() * 360
             const x = Math.cos(deg * RADIAN) * this.param.radius
@@ -37,15 +37,15 @@ VISUALIZER.object.particle.build = class{
             this.local.add(mesh)
         }
     }
-    #createMesh(){
-        const geometry = this.#createGeometry()
-        const material = this.#createMaterial()
+    createMesh(){
+        const geometry = this.createGeometry()
+        const material = this.createMaterial()
         return new THREE.Mesh(geometry, material)
     }
-    #createGeometry(){
+    createGeometry(){
         return new THREE.PlaneGeometry(this.param.width, this.param.height)
     }
-    #createMaterial(){
+    createMaterial(){
         const src = Math.random() > 0.5 ? 'particle_red.png' : 'particle_green.png'
         const texture = new THREE.TextureLoader().load(`assets/src/${src}`)
 
@@ -59,7 +59,7 @@ VISUALIZER.object.particle.build = class{
 
 
     // tween
-    #createTween(){
+    createTween(){
         for(let i = 0; i < this.param.count; i++){
             const start = {
                 opacity: 0,
@@ -72,13 +72,13 @@ VISUALIZER.object.particle.build = class{
 
             const tw = new TWEEN.Tween(start)
             .to(end, 2000)
-            .onUpdate(() => this.#updateTween(i, start))
+            .onUpdate(() => this.updateTween(i, start))
             .delay(i * 100)
             .repeat(Infinity)
             .start()
         }
     }
-    #updateTween(i, start){
+    updateTween(i, start){
         const mesh = this.local.children[i]
 
         const x = Math.cos(mesh.deg * RADIAN) * start.radius
